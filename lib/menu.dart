@@ -83,7 +83,7 @@ class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
 
   final String npm = "2506657112";
-  final String nama = "Syarif";
+  final String nama = "Muhammad Syarifudin";
   final String kelas = "PBP D";
 
   final List<ItemHomepage> items = [
