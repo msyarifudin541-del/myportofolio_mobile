@@ -1,4 +1,5 @@
-import 'package:material_ui/material_ui.dart';
+import 'package:flutter/material.dart';
+import 'package:myportofolio_mobile/models/project_entry.dart';
 import 'package:myportofolio_mobile/widgets/left_drawer.dart';
 
 class ProjectFormPage extends StatefulWidget {
@@ -170,6 +171,17 @@ class _ProjectFormPageState extends State<ProjectFormPage> {
                     ),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
+                        // Simpan data form ke list savedProjects
+                        savedProjects.add(
+                          ProjectEntry(
+                            projectName: _projectName,
+                            description: _description,
+                            category: _category,
+                            technologies: _technologies,
+                            projectLink: _projectLink,
+                          ),
+                        );
+
                         showDialog(
                           context: context,
                           builder: (context) {
@@ -193,6 +205,13 @@ class _ProjectFormPageState extends State<ProjectFormPage> {
                                   onPressed: () {
                                     Navigator.pop(context);
                                     _formKey.currentState!.reset();
+                                    setState(() {
+                                      _projectName = "";
+                                      _description = "";
+                                      _category = "Web Development";
+                                      _technologies = "";
+                                      _projectLink = "";
+                                    });
                                   },
                                 ),
                               ],
