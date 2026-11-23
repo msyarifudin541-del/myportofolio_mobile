@@ -1,5 +1,6 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:myportofolio_mobile/screens/project_form.dart';
+import 'package:myportofolio_mobile/screens/project_list.dart';
 
 /// Model data untuk merepresentasikan tombol aksi beserta warna latarnya.
 class ItemHomepage {
@@ -38,6 +39,13 @@ class ItemCard extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) => const ProjectFormPage(),
+              ),
+            );
+          } else if (item.name == "Lihat Portofolio" || item.name == "Lihat Proyek") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ProjectListPage(),
               ),
             );
           }
