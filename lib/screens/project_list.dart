@@ -74,7 +74,8 @@ class _ProjectListPageState extends State<ProjectListPage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ProjectDetailPage(project: item),
+                          builder: (context) =>
+                              ProjectDetailPage(project: item),
                         ),
                       ).then((_) => setState(() {}));
                     },

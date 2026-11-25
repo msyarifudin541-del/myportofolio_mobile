@@ -18,8 +18,7 @@ class ProjectEntry {
 final List<ProjectEntry> savedProjects = [
   ProjectEntry(
     projectName: "MyPortfolio Web & Mobile",
-    description:
-        "Aplikasi portofolio pribadi berbasis Django REST Framework dan Flutter.",
+    description: "Aplikasi portofolio pribadi berbasis Django REST Framework dan Flutter.",
     category: "Web Development",
     technologies: "Python, Django, Dart, Flutter",
     projectLink: "https://github.com/msyarifudin541-del/myportofolio",

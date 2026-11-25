@@ -34,19 +34,17 @@ class ItemCard extends StatelessWidget {
               ),
             );
 
-          if (item.name == "Tambah Portofolio" || item.name == "Tambah Proyek") {
+          if (item.name == "Tambah Portofolio" ||
+              item.name == "Tambah Proyek") {
             Navigator.push(
               context,
-              MaterialPageRoute(
-                builder: (context) => const ProjectFormPage(),
-              ),
+              MaterialPageRoute(builder: (context) => const ProjectFormPage()),
             );
-          } else if (item.name == "Lihat Portofolio" || item.name == "Lihat Proyek") {
+          } else if (item.name == "Lihat Portofolio" ||
+              item.name == "Lihat Proyek") {
             Navigator.push(
               context,
-              MaterialPageRoute(
-                builder: (context) => const ProjectListPage(),
-              ),
+              MaterialPageRoute(builder: (context) => const ProjectListPage()),
             );
           }
         },
@@ -56,11 +54,7 @@ class ItemCard extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
-                  item.icon,
-                  color: Colors.white,
-                  size: 30.0,
-                ),
+                Icon(item.icon, color: Colors.white, size: 30.0),
                 const Padding(padding: EdgeInsets.only(bottom: 3)),
                 Text(
                   item.name,
