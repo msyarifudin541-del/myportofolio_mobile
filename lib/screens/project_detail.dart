@@ -1,8 +1,8 @@
 import 'package:material_ui/material_ui.dart';
-import 'package:myportofolio_mobile/models/project_entry.dart';
+import 'package:myportofolio_mobile/models/project.dart';
 
 class ProjectDetailPage extends StatelessWidget {
-  final ProjectEntry project;
+  final Project project;
 
   const ProjectDetailPage({super.key, required this.project});
 
@@ -22,13 +22,22 @@ class ProjectDetailPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Chip(
-              label: Text(project.category),
-              backgroundColor: Colors.indigo.shade50,
-            ),
-            const SizedBox(height: 12),
+            if (project.projectImageUrl.isNotEmpty) ...[
+              ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.network(
+                  project.projectImageUrl,
+                  width: double.infinity,
+                  height: 200,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) =>
+                      const SizedBox.shrink(),
+                ),
+              ),
+              const SizedBox(height: 16),
+            ],
             Text(
-              project.projectName,
+              project.title,
               style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
@@ -48,7 +57,7 @@ class ProjectDetailPage extends StatelessWidget {
             ),
             const SizedBox(height: 6),
             Text(
-              project.technologies.isEmpty ? '-' : project.technologies,
+              project.techStack.isEmpty ? '-' : project.techStack,
               style: const TextStyle(fontSize: 15),
             ),
             const SizedBox(height: 16),
@@ -58,7 +67,7 @@ class ProjectDetailPage extends StatelessWidget {
             ),
             const SizedBox(height: 6),
             Text(
-              project.projectLink.isEmpty ? '-' : project.projectLink,
+              project.projectUrl.isEmpty ? '-' : project.projectUrl,
               style: const TextStyle(fontSize: 15, color: Colors.indigo),
             ),
             const SizedBox(height: 28),
